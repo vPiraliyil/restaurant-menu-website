@@ -1,0 +1,293 @@
+/* Base styling for the body, setting font, margin, padding, background color, and text color */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header styling with background color, text color, padding, alignment, and font size */
+header {
+    background-color: white;
+    color: #d32f2f;
+    padding: 3px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Navigation bar styling with flex display, center alignment, background color, and padding */
+nav {
+    display: flex;
+    justify-content:center;
+    background-color: black;
+    padding: 20px 0;
+}
+
+
+/* Styling for navigation links within the nav bar */
+nav a {
+    color: white; /* Link text color */
+    margin: 0 20px; /* Space between links */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px; /* Font size for links */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Styling for the "McWonalds" text in the nav bar */
+nav p {
+    color: #d32f2f;
+    left: 0;
+    position: absolute;
+    margin: 0 20px;
+    font-size: 20px ;
+    font-family: cursive;
+    font-weight: bold;
+}
+#cart{
+    right:0;
+    position: absolute;
+}
+/* Hover effect for navigation links */
+nav a:hover {
+    color: #ffca28; /* Change link color on hover */
+}
+
+/* Hero section styling with background image, color, alignment, padding, and font size */
+.hero {
+    background: url('https://png.pngtree.com/background/20230417/original/pngtree-burger-ketchup-fast-food-vegetables-background-picture-image_2445024.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 150px 20px;
+    font-size: 36px;
+}
+
+/* Styling for paragraph text within the hero section */
+.hero p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Menu section styling with padding and background color */
+.menu {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+/* Heading styling for the menu section */
+.menu h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #d32f2f;
+    font-size: 28px;
+}
+
+/* Grid layout for displaying menu items with auto-resizing columns for responsive design */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between grid items */
+}
+
+/* Styling for each menu item container */
+.menu-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.menu-item a {
+    text-decoration: none;
+}
+
+.menu-grid .menu-item img{
+    height:400px;
+}
+/* Dropdown menu container */
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+/* Dropdown content styling, initially hidden */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: left;
+}
+
+/* Styling for links within the dropdown menu */
+.dropdown-content a {
+    color: #d00000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Hover effect for menu items, slightly lifting the item */
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Image styling within each menu item */
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Heading styling within each menu item */
+.menu-item h3 {
+    background: black;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Paragraph styling within each menu item */
+.menu-item p {
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Footer styling with background color, text color, padding, and alignment */
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Link styling within the footer */
+footer a {
+    color: #ffca28;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Styling for icons in the footer */
+.footer-icons a {
+    margin: 0 10px;
+    color: white;
+}
+
+/* Subscription section styling within the footer */
+.subscribe {
+    margin-top: 10px;
+}
+
+/* Input styling for email subscription */
+.subscribe input {
+    padding: 10px;
+    width: 70%;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Button styling for the subscribe action */
+.subscribe button {
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for the subscribe button */
+.subscribe button:hover {
+    background-color: #fff176;
+}
+
+/* Popup styling */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    width: 600px; /* Default width */
+    transition: left 0.5s ease; /* Smooth transition for left change */
+    transition: width 1s ease; /* Smooth transition for width change */
+}
+
+/* Expanded width when "Make a Combo" is active */
+.popup.combo-view {
+    width: 1000px; /* Expanded width */
+    left: 45%;
+}
+
+
+.popup-content {
+    text-align: center;
+}
+
+
+.popup-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #ffca28;
+}
+
+.hidden {
+    display: none !important;
+}
+.reviews {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+.reviews h3{
+    justify-content: center;
+    text-align: center;
+}
+
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-item {
+  max-width: 600px;
+}
+
+
+.author-detail .name {
+  color: #444;
+  font-size: 1.1rem;
+}

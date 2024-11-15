@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<style>
+    .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+    </style>
+
+<body>
+    <nav>
+        <p> McWonalds </p>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="menu.html">Menu</a>
+            <div class="dropdown-content">
+                <a href="beef.html">Beef</a>
+                <a href="chicken.html">Chicken</a>
+                <a href="sides.html">Sides</a>
+                <a href="beverages">Beverages</a>
+                <a href="desserts.html">Desserts</a>
+            </div>
+        </div>
+        <a href="Deals.html">Deals</a>
+        <a href="#">Locations</a>
+        <a href="#">Contact</a>
+        <a id="cart" href="#">My Cart 🛒</a>
+    </nav>
+    <h1>Menu:</h1>
+<section class="menu">
+        <div class="menu-grid">
+
+            <div class="menu-item">
+                <a href="beef.html">
+                    <img src="Images/BigMac.webp" alt="BigWac Combo">
+                    <h3>Beef</h3>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="chicken.html">
+                    <img src="Images/JuniorChicken.jpg" alt="Chicken">
+                    <h3>Chicken</h3>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="sides.html">
+                    <img src="Images/DALL·E 2024-11-12 15.03.23 - A red container of French fries, similar to McDonald's packaging, with a golden 'W' logo in the center. The 'W' should use the same iconic font style .webp" alt="Sides">
+                    <h3>Sides</h3>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="drinks.html">
+                    <img src="Images/Drinks.jpg" alt="Beverages">
+                    <h3>Beverages</h3>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="Desserts.html">
+                    <img src="Images/Dessert.jpg" alt="Desserts">
+                    <h3>Desserts</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+<footer>
+        <div class="footer-icons">
+            <a href="https://www.youtube.com/watch?v=bnFa4Mq5PAM">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        </div>
+        <div class="subscribe">
+            <p>Subscribe to our newsletter</p>
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </div>
+        <p>&copy; 2024 McWonalds. All Rights Reserved.</p>
+    </footer>
+    </html>

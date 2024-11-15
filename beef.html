@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Food Menu</title>
+    <link rel="stylesheet" href="Styles/style.css">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    <nav>
+        <p> McWonalds </p>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="menu.html">Menu</a>
+            <div class="dropdown-content">
+                <a href="beef.html">Beef</a>
+                <a href="chicken.html">Chicken</a>
+                <a href="sides.html">Sides</a>
+                <a href="beverages">Beverages</a>
+                <a href="desserts.html">Desserts</a>
+            </div>
+        </div>
+        <a href="Deals.html">Deals</a>
+        <a href="#">Locations</a>
+        <a href="#">Contact</a>
+        <a id="cart" href="#">My Cart 🛒</a>
+    </nav>
+    <header>
+        <h1>Beefy Bites</h1>
+        <p>Your favorite beef-based fast food delights!</p>
+    </header>
+
+    <section class="menu">
+        <h2>Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item" data-item-name="Big Wac">
+                <h3>Big Wac</h3>
+                <img src="Images/BigMac.webp" data-item-img="Images/BigMac.webp" alt="Classic Beef Burger">
+                <p data-item-description="A juicy beef patty with lettuce, tomato, and our special sauce.">A juicy beef patty with lettuce, tomato, and our special sauce.</p>
+                <p><strong>Price:</strong> $5.99</p>
+            </div>
+            <div class="menu-item" data-item-name="Cheeseburger">
+                <h3>Cheeseburger</h3>
+                <img src="Images/Cheeseburger.webp" data-item-img="Images/Cheeseburger.webp" alt="Classic Cheeseburger">
+                <p data-item-description="A classic beef burger topped with melted cheese, pickles, and onions.">A classic beef burger topped with melted cheese, pickles, and onions.</p>
+                <p><strong>Price:</strong> $6.49</p>
+            </div>
+            <div class="menu-item" data-item-name="Beef Taco">
+                <h3>Beef Taco</h3>
+                <img src="Images/BeefTaco.webp" data-item-img="Images/BeefTaco.webp" alt="Beef Taco">
+                <p data-item-description="Seasoned beef in a soft or hard shell, topped with lettuce, cheese, and salsa.">Seasoned beef in a soft or hard shell, topped with lettuce, cheese, and salsa.</p>
+                <p><strong>Price:</strong> $2.99</p>
+            </div>
+            <div class="menu-item" data-item-name="Double Beef Burrito">
+                <h3>Double Beef Burrito</h3>
+                <img src="Images/DoubleBeefBurrito.webp" data-item-img="Images/DoubleBeefBurrito.webp" alt="Double Beef Burrito">
+                <p data-item-description="A hearty burrito with double the beef, beans, cheese, and spicy sauce.">A hearty burrito with double the beef, beans, cheese, and spicy sauce.</p>
+                <p><strong>Price:</strong> $7.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Modal -->
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h3 id="popup-title"></h3>
+            <div class="popup-right">
+                <img id="popup-image" src="" alt="Food Item">
+                <h4>Ingredients:</h4>
+                <p id="popup-ingredients"></p>
+                <p id="popup-description"></p>
+            </div>
+            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="makeCombo()">Make a Combo</button>
+            <button onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Visit us at <a href="https://www.beefybites.com">beefybites.com</a> or call (123) 456-7890</p>
+    </footer>
+</body>
+</html>
