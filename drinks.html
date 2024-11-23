@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drinks Menu</title>
     <link rel="stylesheet" href="Styles/style.css">
+    <script src="cart.js" defer></script>
 </head>
 <body>
     <nav>
@@ -16,7 +17,7 @@
                 <a href="beef.html">Beef</a>
                 <a href="chicken.html">Chicken</a>
                 <a href="sides.html">Sides</a>
-                <a href="beverages">Beverages</a>
+                <a href="drinks.html">Drinks</a>
                 <a href="desserts.html">Desserts</a>
             </div>
         </div>
@@ -26,49 +27,81 @@
         <a id="cart" href="#">My Cart 🛒</a>
     </nav>
 
-    <!-- Header section for drinks menu -->
     <header>
         <h1>Refreshing Drinks</h1>
-        <p>Quench your thirst with our cool drinks!</p>
+        <p>Quench your thirst with our drinks menu!</p>
     </header>
 
-    <!-- Drinks menu section -->
     <section class="menu">
         <h2>Drinks Menu</h2>
         <div class="menu-grid">
-            <!-- Soft Drink item -->
-            <div class="menu-item">
-                <h3>Soft Drink</h3>
-                <p>Choice of soda (Coke, Sprite, Fanta).</p>
+            <div class="menu-item" data-item-name="Cola">
+                <h3>Cola</h3>
+                <img src="Images/Cola.webp" data-item-img="Images/Cola.webp" alt="Cola">
+                <p data-item-description="Classic cola served chilled.">Classic cola served chilled.</p>
+                <p><strong>Price:</strong> $1.49</p>
+            </div>
+            <div class="menu-item" data-item-name="Iced Tea">
+                <h3>Iced Tea</h3>
+                <img src="Images/IcedTea.webp" data-item-img="Images/IcedTea.webp" alt="Iced Tea">
+                <p data-item-description="Refreshing iced tea with a hint of lemon.">Refreshing iced tea with a hint of lemon.</p>
                 <p><strong>Price:</strong> $1.99</p>
             </div>
-
-            <!-- Iced Tea item -->
-            <div class="menu-item">
-                <h3>Iced Tea</h3>
-                <p>Refreshing iced tea with lemon.</p>
+            <div class="menu-item" data-item-name="Orange Juice">
+                <h3>Orange Juice</h3>
+                <img src="Images/OrangeJuice.webp" data-item-img="Images/OrangeJuice.webp" alt="Orange Juice">
+                <p data-item-description="Freshly squeezed orange juice.">Freshly squeezed orange juice.</p>
                 <p><strong>Price:</strong> $2.49</p>
             </div>
-
-            <!-- Lemonade item -->
-            <div class="menu-item">
-                <h3>Lemonade</h3>
-                <p>Freshly squeezed lemonade with a hint of sweetness.</p>
-                <p><strong>Price:</strong> $2.49</p>
-            </div>
-
-            <!-- Milkshake item -->
-            <div class="menu-item">
+            <div class="menu-item" data-item-name="Milkshake">
                 <h3>Milkshake</h3>
-                <p>Choose from chocolate, vanilla, or strawberry.</p>
+                <img src="Images/Milkshake.webp" data-item-img="Images/Milkshake.webp" alt="Milkshake">
+                <p data-item-description="Creamy milkshake available in vanilla, chocolate, or strawberry.">Creamy milkshake available in vanilla, chocolate, or strawberry.</p>
                 <p><strong>Price:</strong> $3.99</p>
             </div>
         </div>
     </section>
 
+    <!-- Overlay and Popup -->
+    <div id="popup-overlay" class="overlay"></div>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h3 id="popup-title"></h3>
+            <div class="popup-right">
+                <img id="popup-image" src="" alt="Food Item">
+                <h4>Ingredients:</h4>
+                <p id="popup-ingredients"></p>
+                <p id="popup-description"></p>
+            </div>
+            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="makeCombo()">Make a Combo</button>
+            <button id="closePopup" onclick="closePopup()">Cancel</button>
+        </div>
+        
+        <!-- "Make a Combo" section -->
+        <div id="combo-options" class="hidden">
+            <h3>Make it a Combo!</h3>
+            <p>Choose your side and drink:</p>
+            <div class="combo-grid">
+                <div>
+                    <h4>Sides</h4>
+                    <label><input type="radio" name="side" value="Fries"> Fries</label><br>
+                    <label><input type="radio" name="side" value="Salad"> Salad</label><br>
+                    <label><input type="radio" name="side" value="Onion Rings"> Onion Rings</label>
+                </div>
+                <div>
+                    <h4>Drinks</h4>
+                    <label><input type="radio" name="drink" value="Soda"> Soda</label><br>
+                    <label><input type="radio" name="drink" value="Iced Tea"> Iced Tea</label><br>
+                    <label><input type="radio" name="drink" value="Water"> Water</label>
+                </div>
+            </div>
+            <button onclick="addComboToCart()">Add Combo to Cart</button>
+        </div>
+    </div>
+
     <footer>
         <p>Visit us at <a href="https://www.beefybites.com">beefybites.com</a> or call (123) 456-7890</p>
     </footer>
-
 </body>
 </html>
