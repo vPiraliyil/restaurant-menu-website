@@ -74,9 +74,32 @@
             </div>
             <button onclick="addToCart()">Add to Cart</button>
             <button onclick="makeCombo()">Make a Combo</button>
-            <button onclick="closePopup()">Cancel</button>
+            <button id="closePopup" onclick="closePopup()">Cancel</button>
+        </div>
+        
+        <!-- "Make a Combo" section -->
+        <div id="combo-options" class="hidden">
+            <h3>Make it a Combo!</h3>
+            <p>Choose your side and drink:</p>
+            <div class="combo-grid">
+                <div>
+                    <h4>Sides</h4>
+                    <label><input type="radio" name="side" value="Fries"> Fries</label><br>
+                    <label><input type="radio" name="side" value="Salad"> Salad</label><br>
+                    <label><input type="radio" name="side" value="Onion Rings"> Onion Rings</label>
+                </div>
+                <div>
+                    <h4>Drinks</h4>
+                    <label><input type="radio" name="drink" value="Soda"> Soda</label><br>
+                    <label><input type="radio" name="drink" value="Iced Tea"> Iced Tea</label><br>
+                    <label><input type="radio" name="drink" value="Water"> Water</label>
+                </div>
+            </div>
+            <button onclick="addComboToCart()">Add Combo to Cart</button>
         </div>
     </div>
+    
+    
 
     <footer>
         <p>Visit us at <a href="https://www.beefybites.com">beefybites.com</a> or call (123) 456-7890</p>
