@@ -21,9 +21,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Function to show the popup
+// Function to show the popup with smooth transition
 function showPopup(itemName, itemImg, itemDescription) { 
     const popup = document.getElementById('popup');
+    const overlay = document.getElementById('popup-overlay');
+    const body = document.body;
+
     const popupTitle = document.getElementById('popup-title');
     const popupImage = document.getElementById('popup-image');
     const popupDescription = document.getElementById('popup-description');
@@ -34,8 +37,32 @@ function showPopup(itemName, itemImg, itemDescription) {
     popupDescription.textContent = itemDescription || "No description available."; // Set the description or fallback text
     popupIngredients.textContent = ingredients[itemName] ? ingredients[itemName].join(', ') : "Ingredients not available"; // Set ingredients list
 
-    popup.classList.remove('hidden'); // Show the popup
+    popup.classList.remove('hidden');
+    overlay.classList.add('active'); // Show overlay
+    body.classList.add('no-scroll', 'no-interaction'); // Disable scrolling and interactions
+    setTimeout(() => {
+        popup.classList.add('show'); // Add "show" class for smooth visibility
+    }, 10); // Short delay ensures transition kicks in
 }
+
+// Function to close the popup
+function closePopup() {
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('popup-overlay');
+    const body = document.body;
+
+    popup.classList.remove('show'); // Hide popup smoothly
+    popup.classList.remove('combo-view'); // Remove combo view
+    overlay.classList.remove('active'); // Start fading out the overlay
+
+    // Re-enable scrolling and interactions after the fade-out
+    setTimeout(() => {
+        overlay.style.pointerEvents = "none"; // Ensure no interactions during fade-out
+        body.classList.remove('no-scroll', 'no-interaction'); // Re-enable scrolling
+        popup.classList.add('hidden'); // Fully hide the popup
+    }, 400); // Match the CSS transition duration (0.4s)
+}
+
 
 // Function to handle "Add to Cart"
 function addToCart() {
@@ -46,16 +73,5 @@ function addToCart() {
 // Function to handle "Make a Combo"
 function makeCombo() {
     const popup = document.getElementById('popup');
-    const comboOptions = document.getElementById('combo-options');
     popup.classList.add('combo-view'); // Expand popup width
-    comboOptions.classList.remove('hidden'); // Show combo options
-}
-
-// Function to close popup and reset state
-function closePopup() {
-    const popup = document.getElementById('popup');
-    const comboOptions = document.getElementById('combo-options');
-    popup.classList.remove('combo-view'); // Reset popup width
-    popup.classList.add('hidden');
-    comboOptions.classList.add('hidden'); // Hide combo options
 }
