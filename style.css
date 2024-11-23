@@ -140,6 +140,7 @@ nav a:hover {
 /* Hover effect for menu items, slightly lifting the item */
 .menu-item:hover {
     transform: translateY(-5px);
+    cursor: pointer;
 }
 
 /* Image styling within each menu item */
@@ -229,8 +230,7 @@ footer a {
     z-index: 1000;
     display: flex;
     width: 600px; /* Default width */
-    transition: left 0.5s ease; /* Smooth transition for left change */
-    transition: width 1s ease; /* Smooth transition for width change */
+    transition: left 0.5s ease, width 1s ease; /* Smooth transition for left/width change */
 }
 
 /* Expanded width when "Make a Combo" is active */
