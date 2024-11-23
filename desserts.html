@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desserts Menu</title>
     <link rel="stylesheet" href="Styles/style.css">
+    <script src="cart.js" defer></script>
 </head>
 <body>
     <nav>
@@ -16,7 +17,7 @@
                 <a href="beef.html">Beef</a>
                 <a href="chicken.html">Chicken</a>
                 <a href="sides.html">Sides</a>
-                <a href="beverages">Beverages</a>
+                <a href="drinks.html">Drinks</a>
                 <a href="desserts.html">Desserts</a>
             </div>
         </div>
@@ -26,49 +27,75 @@
         <a id="cart" href="#">My Cart 🛒</a>
     </nav>
 
-    <!-- Header section for desserts menu -->
     <header>
-        <h1>Sweet Treats</h1>
-        <p>End your meal with our delicious desserts!</p>
+        <h1>Desserts Delights</h1>
+        <p>Sweet treats to complete your meal!</p>
     </header>
 
-    <!-- Desserts menu section -->
     <section class="menu">
         <h2>Desserts Menu</h2>
         <div class="menu-grid">
-            <!-- Ice Cream item -->
-            <div class="menu-item">
-                <h3>Ice Cream</h3>
-                <p>Choose from chocolate, vanilla, or strawberry.</p>
+            <div class="menu-item" data-item-name="Ice Cream Sundae">
+                <h3>Ice Cream Sundae</h3>
+                <img src="Images/IceCreamSundae.webp" data-item-img="Images/IceCreamSundae.webp" alt="Ice Cream Sundae">
+                <p data-item-description="Classic vanilla ice cream topped with hot fudge or caramel.">Classic vanilla ice cream topped with hot fudge or caramel.</p>
                 <p><strong>Price:</strong> $2.99</p>
             </div>
-
-            <!-- Apple Pie item -->
-            <div class="menu-item">
+            <div class="menu-item" data-item-name="Apple Pie">
                 <h3>Apple Pie</h3>
-                <p>Classic apple pie with a flaky crust.</p>
-                <p><strong>Price:</strong> $3.49</p>
+                <img src="Images/ApplePie.webp" data-item-img="Images/ApplePie.webp" alt="Apple Pie">
+                <p data-item-description="Warm apple pie with a flaky crust.">Warm apple pie with a flaky crust.</p>
+                <p><strong>Price:</strong> $1.99</p>
             </div>
-
-            <!-- Brownie item -->
-            <div class="menu-item">
-                <h3>Chocolate Brownie</h3>
-                <p>Rich, fudgy brownie with chocolate chips.</p>
-                <p><strong>Price:</strong> $2.99</p>
-            </div>
-
-            <!-- Cheesecake item -->
-            <div class="menu-item">
-                <h3>Cheesecake</h3>
-                <p>Creamy cheesecake with a graham cracker crust.</p>
-                <p><strong>Price:</strong> $4.49</p>
+            <div class="menu-item" data-item-name="Brownie">
+                <h3>Brownie</h3>
+                <img src="Images/Brownie.webp" data-item-img="Images/Brownie.webp" alt="Brownie">
+                <p data-item-description="Rich and fudgy brownie with chocolate chips.">Rich and fudgy brownie with chocolate chips.</p>
+                <p><strong>Price:</strong> $2.49</p>
             </div>
         </div>
     </section>
 
+    <!-- Overlay and Popup -->
+    <div id="popup-overlay" class="overlay"></div>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h3 id="popup-title"></h3>
+            <div class="popup-right">
+                <img id="popup-image" src="" alt="Food Item">
+                <h4>Ingredients:</h4>
+                <p id="popup-ingredients"></p>
+                <p id="popup-description"></p>
+            </div>
+            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="makeCombo()">Make a Combo</button>
+            <button id="closePopup" onclick="closePopup()">Cancel</button>
+        </div>
+        
+        <!-- "Make a Combo" section -->
+        <div id="combo-options" class="hidden">
+            <h3>Make it a Combo!</h3>
+            <p>Choose your side and drink:</p>
+            <div class="combo-grid">
+                <div>
+                    <h4>Sides</h4>
+                    <label><input type="radio" name="side" value="Fries"> Fries</label><br>
+                    <label><input type="radio" name="side" value="Salad"> Salad</label><br>
+                    <label><input type="radio" name="side" value="Onion Rings"> Onion Rings</label>
+                </div>
+                <div>
+                    <h4>Drinks</h4>
+                    <label><input type="radio" name="drink" value="Soda"> Soda</label><br>
+                    <label><input type="radio" name="drink" value="Iced Tea"> Iced Tea</label><br>
+                    <label><input type="radio" name="drink" value="Water"> Water</label>
+                </div>
+            </div>
+            <button onclick="addComboToCart()">Add Combo to Cart</button>
+        </div>
+    </div>
+
     <footer>
         <p>Visit us at <a href="https://www.beefybites.com">beefybites.com</a> or call (123) 456-7890</p>
     </footer>
-
 </body>
 </html>
