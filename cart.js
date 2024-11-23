@@ -45,33 +45,50 @@ function showPopup(itemName, itemImg, itemDescription) {
     }, 10); // Short delay ensures transition kicks in
 }
 
+// Function to handle "Make a Combo"
+function makeCombo() {
+    const popup = document.getElementById('popup');
+    const comboOptions = document.getElementById('combo-options');
+    const buttons = document.querySelectorAll('.popup-content button:not(#closePopup)'); // Select Add to Cart and Make a Combo buttons
+
+    popup.classList.add('combo-view'); // Expand the popup width
+    comboOptions.classList.remove('hidden'); // Show combo options
+
+    // Hide the "Add to Cart" and "Make a Combo" buttons
+    buttons.forEach(button => button.classList.add('hidden'));
+}
+
+// Function to add the combo to the cart
+function addComboToCart() {
+    alert("Combo added to cart!");
+    closePopup();
+}
+
 // Function to close the popup
 function closePopup() {
     const popup = document.getElementById('popup');
     const overlay = document.getElementById('popup-overlay');
     const body = document.body;
+    const comboOptions = document.getElementById('combo-options');
+    const buttons = document.querySelectorAll('.popup-content button:not(#closePopup)'); // Re-select Add to Cart and Make a Combo buttons
 
+    console.log("Closing popup...");
+
+    // Remove all active states
     popup.classList.remove('show'); // Hide popup smoothly
-    popup.classList.remove('combo-view'); // Remove combo view
+    popup.classList.remove('combo-view'); // Remove expanded width view
     overlay.classList.remove('active'); // Start fading out the overlay
+    body.classList.remove('no-scroll', 'no-interaction'); // Re-enable scrolling
 
-    // Re-enable scrolling and interactions after the fade-out
+    console.log("Classes removed. Starting timeout...");
+
+    // Ensure all states are reset after the transition
     setTimeout(() => {
-        overlay.style.pointerEvents = "none"; // Ensure no interactions during fade-out
-        body.classList.remove('no-scroll', 'no-interaction'); // Re-enable scrolling
+        console.log("Inside setTimeout callback!");
         popup.classList.add('hidden'); // Fully hide the popup
+        comboOptions.classList.add('hidden'); // Hide combo options
+        buttons.forEach(button => button.classList.remove('hidden')); // Show Add to Cart and Make a Combo buttons again
+        popup.style.width = ""; // Reset any inline width applied to the popup
+        console.log("Popup reset complete.");
     }, 400); // Match the CSS transition duration (0.4s)
-}
-
-
-// Function to handle "Add to Cart"
-function addToCart() {
-    alert("Item added to cart!");
-    closePopup();
-}
-
-// Function to handle "Make a Combo"
-function makeCombo() {
-    const popup = document.getElementById('popup');
-    popup.classList.add('combo-view'); // Expand popup width
 }
