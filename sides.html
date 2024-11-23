@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sides Menu</title>
     <link rel="stylesheet" href="Styles/style.css">
+    <script src="cart.js" defer></script>
 </head>
 <body>
     <nav>
@@ -16,7 +17,7 @@
                 <a href="beef.html">Beef</a>
                 <a href="chicken.html">Chicken</a>
                 <a href="sides.html">Sides</a>
-                <a href="beverages">Beverages</a>
+                <a href="drinks.html">Drinks</a>
                 <a href="desserts.html">Desserts</a>
             </div>
         </div>
@@ -26,49 +27,75 @@
         <a id="cart" href="#">My Cart 🛒</a>
     </nav>
 
-    <!-- Header section for sides menu -->
     <header>
-        <h1>Side Dishes</h1>
-        <p>Perfect additions to complete your meal!</p>
+        <h1>Sides & Extras</h1>
+        <p>Perfect additions to any meal!</p>
     </header>
 
-    <!-- Sides menu section -->
     <section class="menu">
         <h2>Sides Menu</h2>
         <div class="menu-grid">
-            <!-- French Fries item -->
-            <div class="menu-item">
+            <div class="menu-item" data-item-name="French Fries">
                 <h3>French Fries</h3>
-                <p>Golden, crispy fries with a hint of salt.</p>
-                <p><strong>Price:</strong> $2.49</p>
+                <img src="Images/FrenchFries.webp" data-item-img="Images/FrenchFries.webp" alt="French Fries">
+                <p data-item-description="Golden crispy fries with just the right amount of salt.">Golden crispy fries with just the right amount of salt.</p>
+                <p><strong>Price:</strong> $1.99</p>
             </div>
-
-            <!-- Onion Rings item -->
-            <div class="menu-item">
-                <h3>Onion Rings</h3>
-                <p>Crispy battered onion rings, fried to perfection.</p>
-                <p><strong>Price:</strong> $2.99</p>
-            </div>
-
-            <!-- Mozzarella Sticks item -->
-            <div class="menu-item">
+            <div class="menu-item" data-item-name="Mozzarella Sticks">
                 <h3>Mozzarella Sticks</h3>
-                <p>Cheesy mozzarella sticks with marinara dipping sauce.</p>
-                <p><strong>Price:</strong> $3.99</p>
-            </div>
-
-            <!-- Side Salad item -->
-            <div class="menu-item">
-                <h3>Side Salad</h3>
-                <p>Fresh greens with tomato, cucumber, and your choice of dressing.</p>
+                <img src="Images/MozzarellaSticks.webp" data-item-img="Images/MozzarellaSticks.webp" alt="Mozzarella Sticks">
+                <p data-item-description="Crispy breaded mozzarella sticks served with marinara.">Crispy breaded mozzarella sticks served with marinara.</p>
                 <p><strong>Price:</strong> $3.49</p>
+            </div>
+            <div class="menu-item" data-item-name="Garden Salad">
+                <h3>Garden Salad</h3>
+                <img src="Images/GardenSalad.webp" data-item-img="Images/GardenSalad.webp" alt="Garden Salad">
+                <p data-item-description="Fresh lettuce, tomatoes, cucumbers, and croutons.">Fresh lettuce, tomatoes, cucumbers, and croutons.</p>
+                <p><strong>Price:</strong> $2.99</p>
             </div>
         </div>
     </section>
 
+    <!-- Overlay and Popup -->
+    <div id="popup-overlay" class="overlay"></div>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h3 id="popup-title"></h3>
+            <div class="popup-right">
+                <img id="popup-image" src="" alt="Food Item">
+                <h4>Ingredients:</h4>
+                <p id="popup-ingredients"></p>
+                <p id="popup-description"></p>
+            </div>
+            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="makeCombo()">Make a Combo</button>
+            <button id="closePopup" onclick="closePopup()">Cancel</button>
+        </div>
+        
+        <!-- "Make a Combo" section -->
+        <div id="combo-options" class="hidden">
+            <h3>Make it a Combo!</h3>
+            <p>Choose your side and drink:</p>
+            <div class="combo-grid">
+                <div>
+                    <h4>Sides</h4>
+                    <label><input type="radio" name="side" value="Fries"> Fries</label><br>
+                    <label><input type="radio" name="side" value="Salad"> Salad</label><br>
+                    <label><input type="radio" name="side" value="Onion Rings"> Onion Rings</label>
+                </div>
+                <div>
+                    <h4>Drinks</h4>
+                    <label><input type="radio" name="drink" value="Soda"> Soda</label><br>
+                    <label><input type="radio" name="drink" value="Iced Tea"> Iced Tea</label><br>
+                    <label><input type="radio" name="drink" value="Water"> Water</label>
+                </div>
+            </div>
+            <button onclick="addComboToCart()">Add Combo to Cart</button>
+        </div>
+    </div>
+
     <footer>
         <p>Visit us at <a href="https://www.beefybites.com">beefybites.com</a> or call (123) 456-7890</p>
     </footer>
-
 </body>
 </html>
