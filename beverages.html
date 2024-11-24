@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desserts Menu</title>
+    <link rel="stylesheet" href="Styles/style.css">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    <nav>
+        <p> McWonalds </p>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="menu.html">Menu</a>
+            <div class="dropdown-content">
+                <a href="beef.html">Beef</a>
+                <a href="chicken.html">Chicken</a>
+                <a href="sides.html">Sides</a>
+                <a href="drinks.html">Drinks</a>
+                <a href="desserts.html">Desserts</a>
+            </div>
+        </div>
+        <a href="Deals.html">Deals</a>
+        <a href="#">Locations</a>
+        <a href="#">Contact</a>
+        <a id="cart" href="#">My Cart 🛒</a>
+    </nav>
+
+    <header>
+        <h1>Desserts Delights</h1>
+        <p>Sweet treats to complete your meal!</p>
+    </header>
+
+    <section class="menu">
+        <h2>Desserts Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item" data-item-name="Ice Cream Sundae">
+                <h3>Coke</h3>
+                <img src="Images/IceCreamSundae.webp" data-item-img="Images/IceCreamSundae.webp" alt="Coke">
+                <p data-item-description="coke"><strong>Price:</strong> $2.99</p>
+            </div>
+            <div class="menu-item" data-item-name="Diet Coke">
+                <h3>Diet coke</h3>
+                <img src="Images/ApplePie.webp" data-item-img="Images/ApplePie.webp" alt="Apple Pie">
+                <p data-item-description="Diet coke"></p>
+                <p><strong>Price:</strong> $1.99</p>
+            </div>
+            <div class="menu-item" data-item-name="fanta">
+                <h3>Fanta</h3>
+                <img src="Images/Brownie.webp" data-item-img="Images/Brownie.webp" alt="Fanta">
+                <p data-item-description="fanta">fanta</p>
+                <p><strong>Price:</strong> $2.49</p>
+            </div>
+            <div class="menu-item" data-item-name="sprite">
+                <h3>Sprite</h3>
+                <img src="Images/Brownie.webp" data-item-img="Images/Brownie.webp" alt="sprite">
+                <p data-item-description="sprite">sprite</p>
+                <p><strong>Price:</strong> $2.49</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Overlay and Popup -->
+    <div id="popup-overlay" class="overlay"></div>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h3 id="popup-title"></h3>
+            <div class="popup-right">
+                <img id="popup-image" src="" alt="Food Item">
+                <h4>Ingredients:</h4>
+                <p id="popup-ingredients"></p>
+                <p id="popup-description"></p>
+            </div>
+            <button onclick="addToCart()">Add to Cart</button>
+            <button id="closePopup" onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Visit us at <a href="https://www.beefybites.com">beefybites.com</a> or call (123) 456-7890</p>
+    </footer>
+</body>
+</html>
