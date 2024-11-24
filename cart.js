@@ -64,6 +64,11 @@ function addComboToCart() {
     closePopup();
 }
 
+function addToCart() {
+    alert("Item added to cart!");
+    closePopup();
+}
+
 // Function to close the popup
 function closePopup() {
     const popup = document.getElementById('popup');
