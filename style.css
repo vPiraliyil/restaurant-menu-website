@@ -103,9 +103,12 @@ nav a:hover {
     text-decoration: none;
 }
 
-.menu-grid .menu-item img{
-    height:400px;
+.menu-item img {
+    width: 100%;
+    height: 400px; /* Ensure all images in the menu grid have the same height */
+    object-fit: cover;
 }
+
 /* Dropdown menu container */
 .dropdown {
     display: inline-block;
@@ -141,13 +144,6 @@ nav a:hover {
 .menu-item:hover {
     transform: translateY(-5px);
     cursor: pointer;
-}
-
-/* Image styling within each menu item */
-.menu-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
 }
 
 /* Heading styling within each menu item */
@@ -234,10 +230,58 @@ footer a {
     transition: left 0.5s ease, width 1s ease; /* Smooth transition for left/width change */
 }
 
+#popup-image {
+    max-width: 100%; /* Ensure the image doesn't exceed the popup width */
+    max-height: 300px; /* Limit the height of the image */
+    display: block; /* Remove inline-block spacing issues */
+    margin: 0 auto; /* Center the image horizontally */
+    object-fit: contain; /* Maintain the image's aspect ratio */
+    border-radius: 10px; /* Optional: Add rounded corners to the image */
+}
+
+
 /* Expanded width when "Make a Combo" is active */
 .popup.combo-view {
     width: 1000px; /* Expanded width */
     left: 45%;
+}
+
+
+
+
+/* Show combo options when combo-view is active */
+.popup.combo-view #combo-options {
+    display: block; /* Show the combo section */
+    width: 40%; /* Take up the remaining space on the right */
+    padding-left: 20px; /* Add spacing to separate from the main content */
+}
+
+
+
+.popup-content {
+    text-align: center;
+    width: 100%; /* Center the content initially */
+    transition: transform 0.5s ease; /* Smooth transition for positioning */
+}
+
+.popup.combo-view .popup-content {
+    text-align: left; /* Align content to the left */
+    width: 60%; /* Shrink content width to make space for the combo section */
+    margin-right: auto; /* Push content to the left */
+}
+
+.popup-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #ffca28;
 }
 
 /* Styles for the "Make a Combo" section */
@@ -267,35 +311,6 @@ footer a {
     font-size: 14px;
     line-height: 1.8;
 }
-
-
-/* Show combo options when combo-view is active */
-.popup.combo-view #combo-options {
-    display: block;
-}
-
-
-
-.popup-content {
-    text-align: center;
-}
-
-
-.popup-content button {
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.popup-content button:hover {
-    background-color: #ffca28;
-}
-
-
 
 .hidden {
     display: none !important;
@@ -335,8 +350,6 @@ body.no-scroll {
 
 
 
-
-
 .reviews {
   background-color: #f8f9fa;
   padding: 60px 0;
@@ -365,4 +378,44 @@ body.no-scroll {
 .author-detail .name {
   color: #444;
   font-size: 1.1rem;
+}
+
+.locations {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.location-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.location-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.location-image {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.location-info {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.location-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.location-info p {
+    margin: 5px 0;
+    color: #555;
 }
