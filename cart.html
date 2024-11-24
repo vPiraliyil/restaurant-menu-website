@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart - McWonalds</title>
+    <link rel="stylesheet" href="Styles/style.css">
+    <script src="cart.js" defer></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <p> McWonalds </p>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="menu.html">Menu</a>
+            <div class="dropdown-content">
+                <a href="beef.html">Beef</a>
+                <a href="chicken.html">Chicken</a>
+                <a href="sides.html">Sides</a>
+                <a href="drinks.html">Drinks</a>
+                <a href="desserts.html">Desserts</a>
+            </div>
+        </div>
+        <a href="Deals.html">Deals</a>
+        <a href="#">Locations</a>
+        <a href="contacts.html">Contact</a>
+        <a id="cart" href="cart.html">My Cart 🛒</a>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="contact-page">
+        <h1>My Cart</h1>
+        <p>Your selected items are listed below. Review and proceed to checkout!</p>
+
+        <div id="cart-container">
+            <!-- Dynamic cart content will be loaded here -->
+            <table id="cart-items" class="table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Items will be dynamically populated using JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="cart-summary">
+            <h3>Total: <span id="cart-total">$0.00</span></h3>
+            <button class="btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 McWonalds. All Rights Reserved.</p>
+        <div class="footer-icons">
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        </div>
+    </footer>
+</body>
+
+</html>
