@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicken Menu</title>
     <link rel="stylesheet" href="Styles/style.css">
+    <script src="cart.js" defer></script>
 </head>
 <body>
     <nav>
@@ -16,7 +17,7 @@
                 <a href="beef.html">Beef</a>
                 <a href="chicken.html">Chicken</a>
                 <a href="sides.html">Sides</a>
-                <a href="beverages">Beverages</a>
+                <a href="drinks.html">Drinks</a>
                 <a href="desserts.html">Desserts</a>
             </div>
         </div>
@@ -26,49 +27,81 @@
         <a id="cart" href="#">My Cart 🛒</a>
     </nav>
 
-    <!-- Header section for the chicken menu -->
     <header>
         <h1>Chicken Choices</h1>
         <p>Delicious chicken items made just for you!</p>
     </header>
 
-    <!-- Chicken menu section -->
     <section class="menu">
         <h2>Chicken Menu</h2>
         <div class="menu-grid">
-            <!-- Fried Chicken item -->
-            <div class="menu-item">
+            <div class="menu-item" data-item-name="Fried Chicken">
                 <h3>Fried Chicken</h3>
-                <p>Crispy fried chicken with a golden crust.</p>
+                <img src="Images/FriedChicken.webp" data-item-img="Images/FriedChicken.webp" alt="Fried Chicken">
+                <p data-item-description="Crispy fried chicken with a golden crust.">Crispy fried chicken with a golden crust.</p>
                 <p><strong>Price:</strong> $4.99</p>
             </div>
-            
-            <!-- Chicken Nuggets item -->
-            <div class="menu-item">
+            <div class="menu-item" data-item-name="Chicken Nuggets">
                 <h3>Chicken Nuggets</h3>
-                <p>Bite-sized crispy chicken nuggets with a side of dipping sauce.</p>
+                <img src="Images/ChickenNuggets.webp" data-item-img="Images/ChickenNuggets.webp" alt="Chicken Nuggets">
+                <p data-item-description="Bite-sized crispy chicken nuggets with a side of dipping sauce.">Bite-sized crispy chicken nuggets with a side of dipping sauce.</p>
                 <p><strong>Price:</strong> $3.99</p>
             </div>
-
-            <!-- Grilled Chicken Sandwich -->
-            <div class="menu-item">
+            <div class="menu-item" data-item-name="Grilled Chicken Sandwich">
                 <h3>Grilled Chicken Sandwich</h3>
-                <p>Grilled chicken breast with lettuce, tomato, and mayo.</p>
+                <img src="Images/GrilledChickenSandwich.webp" data-item-img="Images/GrilledChickenSandwich.webp" alt="Grilled Chicken Sandwich">
+                <p data-item-description="Grilled chicken breast with lettuce, tomato, and mayo.">Grilled chicken breast with lettuce, tomato, and mayo.</p>
                 <p><strong>Price:</strong> $5.99</p>
             </div>
-            
-            <!-- Chicken Wrap -->
-            <div class="menu-item">
+            <div class="menu-item" data-item-name="Chicken Wrap">
                 <h3>Chicken Wrap</h3>
-                <p>Grilled chicken with fresh veggies wrapped in a soft tortilla.</p>
+                <img src="Images/ChickenWrap.webp" data-item-img="Images/ChickenWrap.webp" alt="Chicken Wrap">
+                <p data-item-description="Grilled chicken with fresh veggies wrapped in a soft tortilla.">Grilled chicken with fresh veggies wrapped in a soft tortilla.</p>
                 <p><strong>Price:</strong> $6.49</p>
             </div>
         </div>
     </section>
 
+    <!-- Overlay and Popup -->
+    <div id="popup-overlay" class="overlay"></div>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h3 id="popup-title"></h3>
+            <div class="popup-right">
+                <img id="popup-image" src="" alt="Food Item">
+                <h4>Ingredients:</h4>
+                <p id="popup-ingredients"></p>
+                <p id="popup-description"></p>
+            </div>
+            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="makeCombo()">Make a Combo</button>
+            <button id="closePopup" onclick="closePopup()">Cancel</button>
+        </div>
+        
+        <!-- "Make a Combo" section -->
+        <div id="combo-options" class="hidden">
+            <h3>Make it a Combo!</h3>
+            <p>Choose your side and drink:</p>
+            <div class="combo-grid">
+                <div>
+                    <h4>Sides</h4>
+                    <label><input type="radio" name="side" value="Fries"> Fries</label><br>
+                    <label><input type="radio" name="side" value="Salad"> Salad</label><br>
+                    <label><input type="radio" name="side" value="Onion Rings"> Onion Rings</label>
+                </div>
+                <div>
+                    <h4>Drinks</h4>
+                    <label><input type="radio" name="drink" value="Soda"> Soda</label><br>
+                    <label><input type="radio" name="drink" value="Iced Tea"> Iced Tea</label><br>
+                    <label><input type="radio" name="drink" value="Water"> Water</label>
+                </div>
+            </div>
+            <button onclick="addComboToCart()">Add Combo to Cart</button>
+        </div>
+    </div>
+
     <footer>
         <p>Visit us at <a href="https://www.beefybites.com">beefybites.com</a> or call (123) 456-7890</p>
     </footer>
-
 </body>
 </html>
