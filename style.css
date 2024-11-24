@@ -424,3 +424,117 @@ body.no-scroll {
     margin: 5px 0;
     color: #555;
 }
+
+/*Contacts page*/
+/* Base styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Contact page section */
+.contact-page {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.contact-page h1 {
+    color: #d32f2f;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-page p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Contact Info */
+.contact-page .row > div {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-page i {
+    font-size: 48px;
+    color: #d32f2f;
+}
+
+.contact-page h5 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.contact-page p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+form .form-label {
+    display: inline-block;
+    margin-bottom: 5px;
+    vertical-align: top;
+    color: #555;
+    font-size: 14px;
+}
+
+form .form-control {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+form .btn {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+form .btn:hover {
+    background-color: #ffca28;
+    color: black;
+}
+
+/* Footer styling */
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 0;
+}
+
+footer a {
+    color: #ffca28;
+    text-decoration: none;
+    margin: 0 5px;
+}
