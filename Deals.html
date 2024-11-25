@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="Styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals</title>
+    <link rel="stylesheet" href="Styles/style.css">
 </head>
-<header>
-</header>
 <body>
-	<nav>
-        <p> McWonalds </p>
+    <nav>
+        <a class="logo" href="index.html">
+            <p>McWonalds</p>
+        </a>
         <a href="index.html">Home</a>
         <div class="dropdown">
             <a href="menu.html">Menu</a>
@@ -24,10 +27,38 @@
         <a href="contacts.html">Contact</a>
         <a id="cart" href="cart.html">My Cart 🛒</a>
     </nav>
-</body>
-<footer>
+    
+    <header>
+        <h1>Exclusive Deals</h1>
+        <p>Grab these limited-time offers before they're gone!</p>
+    </header>
+
+    <section class="deals">
+        <div class="deals-grid">
+            <div class="deal-item">
+                <img src="Images/Deal1.webp" alt="Deal 1">
+                <h3>BigWac Meal Combo</h3>
+                <p>Enjoy our signature BigWac with fries and a drink for just $6.99!</p>
+                <button>Order Now</button>
+            </div>
+            <div class="deal-item">
+                <img src="Images/Deal2.webp" alt="Deal 2">
+                <h3>Family Feast</h3>
+                <p>A meal for the whole family, including burgers, sides, and drinks for $19.99!</p>
+                <button>Order Now</button>
+            </div>
+            <div class="deal-item">
+                <img src="Images/Deal3.webp" alt="Deal 3">
+                <h3>Sweet Treat Combo</h3>
+                <p>Two desserts and a drink for only $4.99!</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <div class="footer-icons">
-            <a href="">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
         </div>
         <div class="subscribe">
             <p>Subscribe to our newsletter</p>
@@ -36,4 +67,5 @@
         </div>
         <p>&copy; 2024 McWonalds. All Rights Reserved.</p>
     </footer>
+</body>
 </html>
