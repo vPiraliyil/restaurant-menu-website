@@ -1,10 +1,103 @@
-// Arrays for item ingredients
-const ingredients = {
-    "Big Wac": ["lettuce", "tomato", "pickles", "onions", "cheese", "sauce", "patty", "bun"],
-    "Cheeseburger": ["lettuce", "pickles", "cheese", "sauce", "patty", "bun"],
-    "Beef Taco": ["lettuce", "tomato", "cheese", "salsa", "beef", "tortilla"],
-    "Double Beef Burrito": ["lettuce", "tomato", "cheese", "salsa", "beef", "tortilla", "beans", "rice"]
+// Array for menu items
+const menuItems = {
+    "Big Wac": {
+        ingredients: ["lettuce", "tomato", "pickles", "onions", "cheese", "sauce", "patty", "bun"],
+        calories: 550,
+        price: 5.99
+    },
+    "Cheeseburger": {
+        ingredients: ["lettuce", "pickles", "cheese", "sauce", "patty", "bun"],
+        calories: 350,
+        price: 6.49
+    },
+    "Beef Taco": {
+        ingredients: ["lettuce", "tomato", "cheese", "salsa", "beef", "tortilla"],
+        calories: 300,
+        price: 2.99
+    },
+    "Double Beef Burrito": {
+        ingredients: ["lettuce", "tomato", "cheese", "salsa", "beef", "tortilla", "beans", "rice"],
+        calories: 700,
+        price: 7.99
+    },
+    "Fried Chicken": {
+        ingredients: ["chicken", "flour", "spices", "oil"],
+        calories: 450,
+        price: 4.99
+    },
+    "Chicken Nuggets": {
+        ingredients: ["chicken", "bread crumbs", "spices", "oil"],
+        calories: 400,
+        price: 3.99
+    },
+    "Grilled Chicken Sandwich": {
+        ingredients: ["chicken breast", "lettuce", "tomato", "mayo", "bun"],
+        calories: 480,
+        price: 5.99
+    },
+    "Chicken Wrap": {
+        ingredients: ["chicken", "lettuce", "tomato", "tortilla"],
+        calories: 360,
+        price: 6.49
+    },
+    "Ice Cream Sundae": {
+        ingredients: ["vanilla ice cream", "fudge or caramel"],
+        calories: 300,
+        price: 2.99
+    },
+    "Apple Pie": {
+        ingredients: ["apples", "flour", "sugar", "butter"],
+        calories: 250,
+        price: 1.99
+    },
+    "Brownie": {
+        ingredients: ["chocolate", "flour", "sugar", "eggs", "butter"],
+        calories: 350,
+        price: 2.49
+    },
+    "Cola": {
+        ingredients: ["carbonated water", "sugar", "flavoring"],
+        calories: 150,
+        price: 1.49
+    },
+    "Iced Tea": {
+        ingredients: ["tea", "lemon", "sugar"],
+        calories: 120,
+        price: 1.99
+    },
+    "Orange Juice": {
+        ingredients: ["orange juice"],
+        calories: 110,
+        price: 2.49
+    },
+    "Milkshake": {
+        ingredients: ["milk", "ice cream", "flavoring"],
+        calories: 420,
+        price: 3.99
+    },
+    "French Fries": {
+        ingredients: ["potatoes", "oil", "salt"],
+        calories: 320,
+        price: 1.99
+    },
+    "Mozzarella Sticks": {
+        ingredients: ["mozzarella cheese", "breadcrumbs", "oil"],
+        calories: 400,
+        price: 3.49
+    },
+    "Garden Salad": {
+        ingredients: ["lettuce", "tomato", "cucumber", "croutons"],
+        calories: 150,
+        price: 2.99
+    }
 };
+
+
+
+
+// Array for cart items
+let cartItems = [];
+
 
 // Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function() {
@@ -22,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Function to show the popup with smooth transition
-function showPopup(itemName, itemImg, itemDescription) { 
+function showPopup(itemName, itemImg, itemDescription) {
     const popup = document.getElementById('popup');
     const overlay = document.getElementById('popup-overlay');
     const body = document.body;
@@ -30,12 +123,22 @@ function showPopup(itemName, itemImg, itemDescription) {
     const popupTitle = document.getElementById('popup-title');
     const popupImage = document.getElementById('popup-image');
     const popupDescription = document.getElementById('popup-description');
-    const popupIngredients = document.getElementById('popup-ingredients'); // Element for ingredients
+    const popupIngredients = document.getElementById('popup-ingredients');
+
+    // Access item details from the updated menuItems structure
+    const itemDetails = menuItems[itemName] || {};
+    const itemIngredients = itemDetails.ingredients ? itemDetails.ingredients.join(', ') : "Ingredients not available";
+    const itemCalories = itemDetails.calories || "Calories not available";
+    const itemPrice = itemDetails.price || "Price not available";
 
     popupTitle.textContent = `You selected: ${itemName}`;
     popupImage.src = itemImg; // Set item image
     popupDescription.textContent = itemDescription || "No description available."; // Set the description or fallback text
-    popupIngredients.textContent = ingredients[itemName] ? ingredients[itemName].join(', ') : "Ingredients not available"; // Set ingredients list
+    popupIngredients.innerHTML = `
+        <p><strong>Ingredients:</strong> ${itemIngredients}</p>
+        <p><strong>Calories:</strong> ${itemCalories} kcal</p>
+        <p><strong>Price:</strong> $${itemPrice.toFixed(2)}</p>
+    `;
 
     popup.classList.remove('hidden');
     overlay.classList.add('active'); // Show overlay
@@ -44,6 +147,8 @@ function showPopup(itemName, itemImg, itemDescription) {
         popup.classList.add('show'); // Add "show" class for smooth visibility
     }, 10); // Short delay ensures transition kicks in
 }
+
+
 
 // Function to handle "Make a Combo"
 function makeCombo() {
@@ -60,14 +165,104 @@ function makeCombo() {
 
 // Function to add the combo to the cart
 function addComboToCart() {
-    alert("Combo added to cart!");
+    const itemName = document.getElementById('popup-title').textContent.replace('You selected: ', '').trim();
+    const comboSide = document.querySelector('input[name="side"]:checked')?.value;
+    const comboDrink = document.querySelector('input[name="drink"]:checked')?.value;
+
+    if (!comboSide || !comboDrink) {
+        alert('Please select a side and a drink to complete your combo!');
+        return;
+    }
+
+    const itemDescription = document.getElementById('popup-description').textContent.trim();
+    const itemImage = document.getElementById('popup-image').src;
+
+    // Access item details from the updated ingredients structure
+    const itemDetails = menuItems[itemName] || {};
+    const itemPrice = itemDetails.price || 0;
+
+    // Calculate the combo price (base price + fixed combo addition, e.g., $2.00)
+    const comboPrice = itemPrice + 2.00; // Adjust this as needed for combo pricing
+
+    // Define the new cart item with combo details
+    const newItem = {
+        name: itemName,
+        description: itemDescription,
+        image: itemImage,
+        quantity: 1,
+        price: comboPrice,
+        combo: {
+            side: comboSide,
+            drink: comboDrink
+        }
+    };
+
+    // Retrieve the cart from localStorage
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if the item with the same combo already exists in the cart
+    const existingItem = cartItems.find(item => item.name === newItem.name && item.combo?.side === comboSide && item.combo?.drink === comboDrink);
+    if (existingItem) {
+        // If it exists, increase the quantity
+        existingItem.quantity += 1;
+    } else {
+        // Otherwise, add the new item
+        cartItems.push(newItem);
+    }
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    // Display a confirmation message
+    alert(`${itemName} combo with ${comboSide} and ${comboDrink} has been added to your cart!`);
+
+    // Close the popup
     closePopup();
 }
 
+
 function addToCart() {
-    alert("Item added to cart!");
+    const itemName = document.getElementById('popup-title').textContent.replace('You selected: ', '').trim();
+    const itemDescription = document.getElementById('popup-description').textContent.trim();
+    const itemImage = document.getElementById('popup-image').src;
+
+    // Access item details from the updated ingredients structure
+    const itemDetails = menuItems[itemName] || {};
+    const itemPrice = itemDetails.price || 0;
+
+    // Define the new cart item
+    const newItem = {
+        name: itemName,
+        description: itemDescription,
+        image: itemImage,
+        quantity: 1, // Default quantity
+        price: itemPrice
+    };
+
+    // Retrieve the cart from localStorage
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if the item already exists in the cart
+    const existingItem = cartItems.find(item => item.name === newItem.name);
+    if (existingItem) {
+        // If it exists, increase the quantity
+        existingItem.quantity += 1;
+    } else {
+        // Otherwise, add the new item
+        cartItems.push(newItem);
+    }
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    // Display a confirmation message
+    alert(`${itemName} has been added to your cart!`);
+
+    // Close the popup
     closePopup();
 }
+
+
 
 // Function to close the popup
 function closePopup() {
@@ -105,25 +300,71 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartTotal = document.getElementById("cart-total");
 
     function updateCartTable() {
-        cartTableBody.innerHTML = "";
+        const cartTableBody = document.querySelector("#cart-items tbody");
+        const cartTotal = document.getElementById("cart-total");
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
         let total = 0;
-
+    
+        cartTableBody.innerHTML = ""; // Clear existing rows
+    
         cartItems.forEach((item, index) => {
+            const comboDetails = item.combo
+                ? `<p><strong>Side:</strong> ${item.combo.side}</p>
+                   <p><strong>Drink:</strong> ${item.combo.drink}</p>`
+                : `<p>No Combo</p>`;
+    
             const row = document.createElement("tr");
             row.innerHTML = `
-                <td>${item.name}</td>
-                <td>${item.quantity}</td>
+                <td>
+                    <div style="display: flex; align-items: center;">
+                        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 5px;">
+                        <div>
+                            <p><strong>${item.name}</strong></p>
+                            ${comboDetails}
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button class="btn-quantity" onclick="decreaseQuantity(${index})">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="btn-quantity" onclick="increaseQuantity(${index})">+</button>
+                </td>
                 <td>$${(item.price * item.quantity).toFixed(2)}</td>
                 <td>
-                    <button onclick="removeItem(${index})">Remove</button>
+                    <button onclick="removeItem(${index})" class="btn-remove">Remove</button>
                 </td>
             `;
             cartTableBody.appendChild(row);
+    
             total += item.price * item.quantity;
         });
-
+    
         cartTotal.textContent = `$${total.toFixed(2)}`;
     }
+    
+    // Function to increase quantity
+    window.increaseQuantity = function (index) {
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        cartItems[index].quantity += 1;
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        updateCartTable();
+    };
+    
+    // Function to decrease quantity
+    window.decreaseQuantity = function (index) {
+        const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        if (cartItems[index].quantity > 1) {
+            cartItems[index].quantity -= 1;
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            updateCartTable();
+        } else {
+            removeItem(index);
+        }
+    };
+    
+    
+    
+    
 
     window.removeItem = function (index) {
         cartItems.splice(index, 1);
