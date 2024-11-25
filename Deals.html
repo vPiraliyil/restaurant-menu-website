@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deals</title>
     <link rel="stylesheet" href="Styles/style.css">
+    <script src="cart.js" defer></script>
 </head>
 <body>
+    <!-- Navbar -->
     <nav>
         <a class="logo" href="index.html">
             <p>McWonalds</p>
@@ -18,7 +20,7 @@
                 <a href="beef.html">Beef</a>
                 <a href="chicken.html">Chicken</a>
                 <a href="sides.html">Sides</a>
-                <a href="drinks.html">Beverages</a>
+                <a href="drinks.html">Drinks</a>
                 <a href="desserts.html">Desserts</a>
             </div>
         </div>
@@ -27,43 +29,49 @@
         <a href="contacts.html">Contact</a>
         <a id="cart" href="cart.html">My Cart 🛒</a>
     </nav>
-    
+
+    <!-- Header -->
     <header>
         <h1>Exclusive Deals</h1>
         <p>Grab these limited-time offers before they're gone!</p>
     </header>
 
+    <!-- Deals Section -->
     <section class="deals">
+        <h2>Today's Deals</h2>
         <div class="deals-grid">
-            <div class="deal-item">
-                <img src="Images/Deal1.webp" alt="Deal 1">
-                <h3>BigWac Meal Combo</h3>
+            <div class="deal-item" data-item-name="BigWac Meal Combo">
+                <img src="Images/BigMac.webp" alt="BigWac Meal Combo">
+                <h3>Big Wac Meal Combo</h3>
                 <p>Enjoy our signature BigWac with fries and a drink for just $6.99!</p>
-                <button>Order Now</button>
+                <button onclick="addDealToCart('BigWac Meal Combo')">Order Now</button>
             </div>
-            <div class="deal-item">
-                <img src="Images/Deal2.webp" alt="Deal 2">
+            <div class="deal-item" data-item-name="Family Feast">
+                <img src="Images/friedChicken.jpg" alt="Family Feast">
                 <h3>Family Feast</h3>
                 <p>A meal for the whole family, including burgers, sides, and drinks for $19.99!</p>
-                <button>Order Now</button>
+                <button onclick="addDealToCart('Family Feast')">Order Now</button>
             </div>
-            <div class="deal-item">
-                <img src="Images/Deal3.webp" alt="Deal 3">
+            <div class="deal-item" data-item-name="Sweet Treat Combo">
+                <img src="Images/milkShake.webp" alt="Sweet Treat Combo">
                 <h3>Sweet Treat Combo</h3>
                 <p>Two desserts and a drink for only $4.99!</p>
-                <button>Order Now</button>
+                <button onclick="addDealToCart('Sweet Treat Combo')">Order Now</button>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-icons">
-            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+            <a href="https://www.youtube.com/watch?v=bnFa4Mq5PAM">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
         </div>
         <div class="subscribe">
-            <p>Subscribe to our newsletter</p>
-            <input type="email" placeholder="Enter your email">
-            <button>Subscribe</button>
+            <form>
+                <p>Subscribe to our newsletter</p>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit" value="Subscribe">Subscribe</button>
+            </form>
         </div>
         <p>&copy; 2024 McWonalds. All Rights Reserved.</p>
     </footer>
