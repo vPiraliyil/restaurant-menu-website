@@ -301,9 +301,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateCartTable() {
         const cartTableBody = document.querySelector("#cart-items tbody");
-        const cartTotal = document.getElementById("cart-total");
+        const cartSubtotalElement = document.getElementById("cart-subtotal");
+        const cartHstElement = document.getElementById("cart-hst");
+        const cartTotalElement = document.getElementById("cart-total");
         const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-        let total = 0;
+        let subtotal = 0;
     
         cartTableBody.innerHTML = ""; // Clear existing rows
     
@@ -317,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
             row.innerHTML = `
                 <td>
                     <div style="display: flex; align-items: center;">
-                        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 5px;">
+                        <img src="${item.image || 'placeholder.jpg'}" alt="${item.name}" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 5px;">
                         <div>
                             <p><strong>${item.name}</strong></p>
                             ${comboDetails}
@@ -336,11 +338,20 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
             cartTableBody.appendChild(row);
     
-            total += item.price * item.quantity;
+            subtotal += item.price * item.quantity;
         });
     
-        cartTotal.textContent = `$${total.toFixed(2)}`;
+        // Calculate HST and Total
+        const hst = subtotal * 0.13; // 13% HST
+        const total = subtotal + hst;
+    
+        // Update DOM elements
+        cartSubtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+        cartHstElement.textContent = `$${hst.toFixed(2)}`;
+        cartTotalElement.textContent = `$${total.toFixed(2)}`;
     }
+    
+    
     
     // Function to increase quantity
     window.increaseQuantity = function (index) {
@@ -384,3 +395,130 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCartTable();
 });
+
+function addDealToCart(dealName) {
+    const dealDetails = {
+        "BigWac Meal Combo": {
+            description: "Enjoy our signature BigWac with fries and a drink for just $6.99!",
+            price: 6.99,
+            quantity: 1,
+            combo: {
+                side: "Fries",
+                drink: "Iced Tea"
+            }
+        },
+        "Family Feast": {
+            description: "A meal for the whole family, including burgers, sides, and drinks for $19.99!",
+            price: 19.99,
+            quantity: 1
+        },
+        "Sweet Treat Combo": {
+            description: "Two desserts and a drink for only $4.99!",
+            price: 4.99,
+            quantity: 1
+        }
+    };
+
+    const selectedDeal = dealDetails[dealName];
+
+    if (!selectedDeal) {
+        alert("Error: Deal not found!");
+        return;
+    }
+
+    // Retrieve cart from localStorage
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the deal with the same combo already exists in the cart
+    const existingDeal = cartItems.find(
+        item =>
+            item.name === dealName &&
+            item.combo?.side === selectedDeal.combo?.side &&
+            item.combo?.drink === selectedDeal.combo?.drink
+    );
+
+    if (existingDeal) {
+        existingDeal.quantity += 1;
+    } else {
+        cartItems.push({
+            name: dealName,
+            description: selectedDeal.description,
+            price: selectedDeal.price,
+            quantity: selectedDeal.quantity,
+            combo: selectedDeal.combo || null
+        });
+    }
+
+    // Save updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+
+    alert(`${dealName} has been added to your cart with ${selectedDeal.combo?.side} and ${selectedDeal.combo?.drink || "no drink"}!`);
+}
+// Function to add the BigWac Combo to the cart
+function addBigWacCombo() {
+    const comboItem = {
+        name: "BigWac Meal Combo",
+        description: "The ultimate burger with fries and iced tea.",
+        price: 6.99,
+        quantity: 1,
+        combo: {
+            side: "Fries",
+            drink: "Iced Tea"
+        },
+        image: "Images/BigWac.jpg"
+    };
+
+    // Retrieve cart from localStorage
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the item already exists
+    const existingCombo = cartItems.find(
+        item => item.name === comboItem.name &&
+                item.combo?.side === comboItem.combo.side &&
+                item.combo?.drink === comboItem.combo.drink
+    );
+
+    if (existingCombo) {
+        existingCombo.quantity += 1;
+    } else {
+        cartItems.push(comboItem);
+    }
+
+    // Save updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+
+    alert("BigWac Combo has been added to your cart!");
+}
+
+// Function to add Fries to the cart
+function addFriesToCart() {
+    const friesItem = {
+        name: "French Fries",
+        description: "Perfectly crispy fries with a touch of W.",
+        price: 1.99,
+        quantity: 1,
+        image: "Images/fries.jpg"
+    };
+
+    // Retrieve cart from localStorage
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the item already exists
+    const existingFries = cartItems.find(item => item.name === friesItem.name);
+
+    if (existingFries) {
+        existingFries.quantity += 1;
+    } else {
+        cartItems.push(friesItem);
+    }
+
+    // Save updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+
+    alert("Fries have been added to your cart!");
+}
+
+// Function to redirect to the Drinks page
+function redirectToDrinks() {
+    window.location.href = "drinks.html";
+}
