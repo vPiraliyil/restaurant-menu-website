@@ -93,8 +93,6 @@ const menuItems = {
 };
 
 
-
-
 // Array for cart items
 let cartItems = [];
 
@@ -133,7 +131,7 @@ function showPopup(itemName, itemImg, itemDescription) {
 
     popupTitle.textContent = `You selected: ${itemName}`;
     popupImage.src = itemImg; // Set item image
-    popupDescription.textContent = itemDescription || "No description available."; // Set the description or fallback text
+    popupDescription.textContent = itemDescription || "No description available."; // Set the description
     popupIngredients.innerHTML = `
         <p><strong>Ingredients:</strong> ${itemIngredients}</p>
         <p><strong>Calories:</strong> ${itemCalories} cal</p>
@@ -147,7 +145,6 @@ function showPopup(itemName, itemImg, itemDescription) {
         popup.classList.add('show'); // Add "show" class for smooth visibility
     }, 10); // Short delay ensures transition kicks in
 }
-
 
 
 // Function to handle "Make a Combo"
@@ -272,7 +269,7 @@ function closePopup() {
     const comboOptions = document.getElementById('combo-options');
     const buttons = document.querySelectorAll('.popup-content button:not(#closePopup)'); // Re-select Add to Cart and Make a Combo buttons
 
-    console.log("Closing popup...");
+    console.log("Closing popup..."); // For debugging purposes
 
     // Remove all active states
     popup.classList.remove('show'); // Hide popup smoothly
@@ -280,16 +277,16 @@ function closePopup() {
     overlay.classList.remove('active'); // Start fading out the overlay
     body.classList.remove('no-scroll', 'no-interaction'); // Re-enable scrolling
 
-    console.log("Classes removed. Starting timeout...");
+    console.log("Classes removed. Starting timeout..."); // For debugging purposes
 
     // Ensure all states are reset after the transition
     setTimeout(() => {
-        console.log("Inside setTimeout callback!");
+        console.log("Inside setTimeout callback!"); // For debugging purposes
         popup.classList.add('hidden'); // Fully hide the popup
         comboOptions.classList.add('hidden'); // Hide combo options
         buttons.forEach(button => button.classList.remove('hidden')); // Show Add to Cart and Make a Combo buttons again
         popup.style.width = ""; // Reset any inline width applied to the popup
-        console.log("Popup reset complete.");
+        console.log("Popup reset complete."); // For debugging purposes
     }, 400); // Match the CSS transition duration (0.4s)
 }
 
@@ -398,8 +395,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function addDealToCart(dealName) {
     const dealDetails = {
-        "BigWac Meal Combo": {
-            description: "Enjoy our signature BigWac with fries and a drink for just $6.99!",
+        "Big Wac Meal Combo": {
+            description: "Enjoy our signature Big Wac with fries and a drink for just $6.99!",
             price: 6.99,
             quantity: 1,
             combo: {
