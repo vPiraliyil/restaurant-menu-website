@@ -136,7 +136,7 @@ function showPopup(itemName, itemImg, itemDescription) {
     popupDescription.textContent = itemDescription || "No description available."; // Set the description or fallback text
     popupIngredients.innerHTML = `
         <p><strong>Ingredients:</strong> ${itemIngredients}</p>
-        <p><strong>Calories:</strong> ${itemCalories} kcal</p>
+        <p><strong>Calories:</strong> ${itemCalories} cal</p>
         <p><strong>Price:</strong> $${itemPrice.toFixed(2)}</p>
     `;
 
