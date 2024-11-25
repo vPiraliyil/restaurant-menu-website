@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>McWonalds</title>
     <link rel="stylesheet" href="Styles/style.css">
+    <script src="cart.js" defer></script>
 </head>
 <body>
 
@@ -32,33 +33,38 @@
         <a href="contacts.html">Contact</a>
         <a id="cart" href="cart.html">My Cart 🛒</a>
     </nav>
-
-    <section class="hero" >
-        <h1>Delicious Meals, Great Deals!</h1>
-        <p>Enjoy the best flavors with McWonalds' exclusive menu.</p>
-        
-    </section>
+        <div class="hero">
+            <h1>Delicious Meals, Great Deals!</h1>
+            <p>Enjoy the best flavors with McWonalds' exclusive menu.</p>
+        </div>
+    
 
     <section class="menu">
         <h2>Our Signature Dishes</h2>
         <div class="menu-grid">
-            <div class="menu-item">
+            <!-- BigWac Combo -->
+            <div class="menu-item" onclick="addBigWacCombo()">
                 <img src="Images/BigWac.jpg" alt="BigWac Combo">
                 <h3>BigWac Combo</h3>
                 <p>The ultimate burger with our signature W.</p>
             </div>
-            <div class="menu-item">
-                <img src="Images/fries.jpg">
+            
+            <!-- Fries -->
+            <div class="menu-item" onclick="addFriesToCart()">
+                <img src="Images/fries.jpg" alt="Fries">
                 <h3>W-Fries</h3>
                 <p>Perfectly crispy fries with a touch of W.</p>
             </div>
-            <div class="menu-item">
-                <img src="Images/Drinks.jpg">
+            
+            <!-- Drinks -->
+            <div class="menu-item" onclick="redirectToDrinks()">
+                <img src="Images/Drinks.jpg" alt="Drinks">
                 <h3>W-Drink</h3>
                 <p>Refreshing drinks to complement your meal.</p>
             </div>
         </div>
     </section>
+    
     <section class="reviews">
         <div class="row">
           <div class="offset-md-2 col-md-8">
@@ -84,9 +90,11 @@
             <a href="https://www.youtube.com/watch?v=bnFa4Mq5PAM">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
         </div>
         <div class="subscribe">
-            <p>Subscribe to our newsletter</p>
-            <input type="email" placeholder="Enter your email">
-            <button>Subscribe</button>
+            <form>
+                <p>Subscribe to our newsletter</p>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit" value="Subscribe">Subscribe</button>
+            </form>
         </div>
         <p>&copy; 2024 McWonalds. All Rights Reserved.</p>
     </footer>
