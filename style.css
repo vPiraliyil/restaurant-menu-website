@@ -1,4 +1,4 @@
-/* Base styling for the body, setting font, margin, padding, background color, and text color */
+/* Base styling for the body*/
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -7,7 +7,7 @@ body {
     color: #333;
 }
 
-/* Header styling with background color, text color, padding, alignment, and font size */
+/* Header styling*/
 header {
     background-color: white;
     color: #d32f2f;
@@ -17,7 +17,7 @@ header {
     font-weight: bold;
 }
 
-/* Navigation bar styling with flex display, center alignment, background color, and padding */
+/* Navigation bar styling*/
 nav {
     display: flex;
     justify-content:center;
@@ -26,16 +26,16 @@ nav {
 }
 
 
-/* Styling for navigation links within the nav bar */
+/* Styling for navigation links*/
 nav a {
-    color: white; /* Link text color */
-    margin: 0 20px; /* Space between links */
-    text-decoration: none; /* Remove underline */
-    font-size: 18px; /* Font size for links */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    color: white;
+    margin: 0 20px; 
+    text-decoration: none;
+    font-size: 18px; 
+    transition: color 0.3s ease;
 }
 
-/* Styling for the "McWonalds" text in the nav bar */
+/* Styling for `text in the nav bar */
 nav p {
     color: #d32f2f;
     left: 0;
@@ -51,11 +51,11 @@ nav p {
 }
 /* Hover effect for navigation links */
 nav a:hover {
-    color: #ffca28; /* Change link color on hover */
+    color: #ffca28;
 }
 
 
-/* Hero section styling with background image, color, alignment, padding, and font size */
+/* Hero section styling */
 .hero {
     background: url("/Images/food.jpg") no-repeat center center/cover;
     color: white;
@@ -64,19 +64,19 @@ nav a:hover {
     font-size: 36px;
 }
 
-/* Styling for paragraph text within the hero section */
+/* Styling for paragraph text */
 .hero p {
     font-size: 20px;
     margin-top: 10px;
 }
 
-/* Menu section styling with padding and background color */
+/* Menu section styling*/
 .menu {
     padding: 40px 20px;
     background-color: #fff;
 }
 
-/* Heading styling for the menu section */
+/* Heading styling for menu section */
 .menu h2 {
     text-align: center;
     margin-bottom: 30px;
@@ -84,20 +84,20 @@ nav a:hover {
     font-size: 28px;
 }
 
-/* Grid layout for displaying menu items with auto-resizing columns for responsive design */
+/* Grid layout for displaying menu*/
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 20px; /* Space between grid items */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
 }
 
-/* Styling for each menu item container */
+/* Styling for each menu item */
 .menu-item {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
-    transition: transform 0.3s ease; /* Smooth hover effect */
+    transition: transform 0.3s ease; 
 }
 
 .menu-item a {
@@ -106,7 +106,7 @@ nav a:hover {
 
 .menu-item img {
     width: 100%;
-    height: 400px; /* Ensure all images in the menu grid have the same height */
+    height: 400px; 
     object-fit: cover;
 }
 
@@ -116,7 +116,7 @@ nav a:hover {
     position: relative;
 }
 
-/* Dropdown content styling, initially hidden */
+/* Dropdown content styling*/
 .dropdown-content {
     display: none;
     position: absolute;
@@ -127,7 +127,7 @@ nav a:hover {
     text-align: left;
 }
 
-/* Styling for links within the dropdown menu */
+/* Styling for links in  dropdown menu */
 .dropdown-content a {
     color: #d00000;
     padding: 12px 16px;
@@ -141,13 +141,13 @@ nav a:hover {
     display: block;
 }
 
-/* Hover effect for menu items, slightly lifting the item */
+/* Hover effect for menu items*/
 .menu-item:hover {
     transform: translateY(-5px);
     cursor: pointer;
 }
 
-/* Heading styling within each menu item */
+/* Heading styling in each menu item */
 .menu-item h3 {
     background: black;
     color: white;
@@ -157,14 +157,14 @@ nav a:hover {
     text-align: center;
 }
 
-/* Paragraph styling within each menu item */
+/* Paragraph styling in each menu item */
 .menu-item p {
     padding: 15px;
     font-size: 16px;
     text-align: center;
 }
 
-/* Footer styling with background color, text color, padding, and alignment */
+/* Footer styling */
 footer {
     background-color: black;
     color: white;
@@ -172,7 +172,7 @@ footer {
     text-align: center;
 }
 
-/* Link styling within the footer */
+/* Link styling in footer */
 footer a {
     color: #ffca28;
     text-decoration: none;
@@ -185,12 +185,12 @@ footer a {
     color: white;
 }
 
-/* Subscription section styling within the footer */
+/* Subscription section styling in footer */
 .subscribe {
     margin-top: 10px;
 }
 
-/* Input styling for email subscription */
+/* Input styling for email */
 .subscribe input {
     padding: 10px;
     width: 70%;
@@ -199,7 +199,7 @@ footer a {
     border-radius: 5px;
 }
 
-/* Button styling for the subscribe action */
+/* Subscribe Button Styling */
 .subscribe button {
     padding: 10px 20px;
     background-color: #d32f2f;
@@ -227,48 +227,48 @@ footer a {
     z-index: 1000;
     display: flex;
     flex-direction: row;
-    width: 600px; /* Default width */
-    transition: left 0.5s ease, width 1s ease; /* Smooth transition for left/width change */
+    width: 600px; 
+    transition: left 0.5s ease, width 1s ease; 
 }
 
 #popup-image {
-    max-width: 100%; /* Ensure the image doesn't exceed the popup width */
-    max-height: 300px; /* Limit the height of the image */
-    display: block; /* Remove inline-block spacing issues */
-    margin: 0 auto; /* Center the image horizontally */
-    object-fit: contain; /* Maintain the image's aspect ratio */
-    border-radius: 10px; /* Optional: Add rounded corners to the image */
+    max-width: 100%; 
+    max-height: 300px; 
+    display: block; 
+    margin: 0 auto; 
+    object-fit: contain;
+    border-radius: 10px;
 }
 
 
 /* Expanded width when "Make a Combo" is active */
 .popup.combo-view {
-    width: 1000px; /* Expanded width */
+    width: 1000px; 
     left: 45%;
 }
 
 
 
 
-/* Show combo options when combo-view is active */
+/* Show combo options */
 .popup.combo-view #combo-options {
-    display: block; /* Show the combo section */
-    width: 40%; /* Take up the remaining space on the right */
-    padding-left: 20px; /* Add spacing to separate from the main content */
+    display: block; 
+    width: 40%; 
+    padding-left: 20px; 
 }
 
 
 
 .popup-content {
     text-align: center;
-    width: 100%; /* Center the content initially */
-    transition: transform 0.5s ease; /* Smooth transition for positioning */
+    width: 100%; 
+    transition: transform 0.5s ease; 
 }
 
 .popup.combo-view .popup-content {
-    text-align: left; /* Align content to the left */
-    width: 60%; /* Shrink content width to make space for the combo section */
-    margin-right: auto; /* Push content to the left */
+    text-align: left; 
+    width: 60%; 
+    margin-right: auto;
 }
 
 .popup-content button {
@@ -285,27 +285,27 @@ footer a {
     background-color: #ffca28;
 }
 
-/* Styles for the "Make a Combo" section */
+/* Styles for Make a Combo section */
 #combo-options {
-    display: none; /* Hidden by default */
+    display: none; 
     padding: 20px;
     background-color: #f9f9f9;
-    border-left: 1px solid #ddd; /* Add separation */
-    height: 100%; /* Fill the entire height of the popup */
-    box-sizing: border-box; /* Ensure padding doesn't exceed container width */
-    flex-grow: 1; /* Allow the section to expand and take up all available space */
+    border-left: 1px solid #ddd; 
+    height: 100%; 
+    box-sizing: border-box;
+    flex-grow: 1; 
 }
 
 #combo-options h3 {
     color: #d32f2f;
-    margin-top: 0; /* Ensure it aligns with the top of the section */
+    margin-top: 0; 
 }
 
 #combo-options .combo-grid {
     display: flex;
-    gap: 20px; /* Space between sides and drinks */
+    gap: 20px; 
     justify-content: space-between;
-    margin-top: 20px; /* Add space after the heading */
+    margin-top: 20px; 
 }
 
 #combo-options label {
@@ -321,7 +321,7 @@ footer a {
     overflow: hidden;
 }
 
-/* Add this new rule to handle overlay and disabled interactions */
+/* Style for overlay */
 .overlay {
     position: fixed;
     top: 0;
@@ -329,24 +329,24 @@ footer a {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 999; /* Above other content, below the popup */
-    opacity: 0; /* Start invisible */
-    pointer-events: none; /* Disable interactions */
-    transition: opacity 0.4s ease; /* Smooth fade effect */
+    z-index: 999; 
+    opacity: 0; 
+    pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 
 .overlay.active {
-    opacity: 1; /* Fade in when active */
-    pointer-events: auto; /* Enable interactions */
+    opacity: 1; 
+    pointer-events: auto; 
 }
 
 
 body.no-interaction *:not(.popup, .popup *) {
-    pointer-events: none; /* Disable interactions outside the popup */
+    pointer-events: none; 
 }
 
 body.no-scroll {
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
 }
 
 
@@ -384,18 +384,18 @@ body.no-scroll {
 .locations {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Minimized gap between items */
-    padding: 10px; /* Reduced padding for the section */
-    align-items: center; /* Center all location items */
+    gap: 10px; 
+    padding: 10px; 
+    align-items: center; 
 }
 
 .location-item {
     display: flex;
     align-items: center;
-    gap: 15px; /* Less gap between image and text */
-    width: 90%; /* Extend width for better spacing */
-    max-width: 1000px; /* Ensure it doesn’t grow too large */
-    justify-content: space-between; /* Equal spacing between image and text */
+    gap: 15px; 
+    width: 90%; 
+    max-width: 1000px; 
+    justify-content: space-between; 
 }
 
 .location-item.reverse {
@@ -403,7 +403,7 @@ body.no-scroll {
 }
 
 .location-image {
-    width: 300px; /* Larger, consistent image size */
+    width: 300px; 
     height: 225px;
     object-fit: cover;
     border-radius: 10px;
@@ -412,7 +412,7 @@ body.no-scroll {
 .location-info {
     font-family: Arial, sans-serif;
     font-size: 14px;
-    flex-grow: 1; /* Allow text to adjust evenly */
+    flex-grow: 1; 
 }
 
 .location-info h3 {
@@ -427,7 +427,6 @@ body.no-scroll {
 }
 
 /*Contacts page*/
-/* Base styling */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -541,19 +540,18 @@ footer a {
 }
 
 /* Styling for the cart container */
-/* Center the cart heading and description */
 .cart-page h1,
 .cart-page p {
     text-align: center;
     margin: 10px 0;
-    font-weight: normal; /* Optional: Adjust font weight if needed */
+    font-weight: normal; 
 }
 
 /* Add spacing and alignment for the cart page */
 .cart-page {
     margin: 0 auto;
     padding: 20px;
-    max-width: 800px; /* Ensure it fits neatly on all screen sizes */
+    max-width: 800px;
 }
 
 #cart-container {
@@ -661,7 +659,7 @@ h1{
 .deals {
     padding: 40px 20px;
     background-color: #fff;
-    text-align: center; /* Center text for headings */
+    text-align: center; 
 }
 
 .deals h2 {
@@ -674,30 +672,30 @@ h1{
 /* Grid layout for displaying deals */
 .deals-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 20px; /* Space between deal items */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px; 
     max-width: 1200px;
-    margin: 0 auto; /* Center the grid */
+    margin: 0 auto; 
 }
 
 /* Individual deal item styling */
 .deal-item {
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .deal-item:hover {
-    transform: translateY(-5px); /* Lift on hover */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
 }
 
 .deal-item img {
     width: 100%;
-    height: 200px; /* Consistent height for images */
-    object-fit: cover; /* Ensure images are cropped appropriately */
+    height: 200px; 
+    object-fit: cover; 
 }
 
 .deal-item h3 {
