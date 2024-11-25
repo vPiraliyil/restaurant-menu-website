@@ -12,7 +12,9 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <p> McWonalds </p>
+        <a class="logo" href="index.html">
+            <p>McWonalds</p>
+        </a>
         <a href="index.html">Home</a>
         <div class="dropdown">
             <a href="menu.html">Menu</a>
@@ -20,23 +22,22 @@
                 <a href="beef.html">Beef</a>
                 <a href="chicken.html">Chicken</a>
                 <a href="sides.html">Sides</a>
-                <a href="drinks.html">Drinks</a>
+                <a href="drinks.html">Beverages</a>
                 <a href="desserts.html">Desserts</a>
             </div>
         </div>
         <a href="Deals.html">Deals</a>
-        <a href="#">Locations</a>
+        <a href="locations.html">Locations</a>
         <a href="contacts.html">Contact</a>
         <a id="cart" href="cart.html">My Cart 🛒</a>
     </nav>
 
     <!-- Cart Section -->
-    <section class="contact-page">
+    <section class="cart-page">
         <h1>My Cart</h1>
         <p>Your selected items are listed below. Review and proceed to checkout!</p>
 
         <div id="cart-container">
-            <!-- Dynamic cart content will be loaded here -->
             <table id="cart-items" class="table">
                 <thead>
                     <tr>
@@ -47,14 +48,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Items will be dynamically populated using JavaScript -->
+                    <!-- Cart items will be dynamically populated here -->
                 </tbody>
             </table>
-        </div>
 
-        <div id="cart-summary">
-            <h3>Total: <span id="cart-total">$0.00</span></h3>
-            <button class="btn" onclick="checkout()">Proceed to Checkout</button>
+            <div id="cart-summary">
+                <h3>Total: <span id="cart-total">$0.00</span></h3>
+                <button class="btn" onclick="checkout()">Proceed to Checkout</button>
+            </div>
         </div>
     </section>
 
